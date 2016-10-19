@@ -9,58 +9,64 @@
 </html>
 
 <?php 
-$query = $_GET['fname'];
 
-$db = new mysqli('localhost', 'cs143', '', 'CS143'); 
-if($db->connect_errno > 0)
-{ 
-die('Unable to connect to database [' . $db->connect_error . ']');
-}
-
-
-$result="si";
-	$x = ($result = $db->query($query));
-	if (!$x)
-	{ $errmsg = $db->error; 
-	print "shit";
-	print "Query failed: $errmsg <br />"; 
-	exit(1); 
-	}
-	else
-	{
-	}
-
-	
-	
-	$i=0;
-		echo "<table border='1'> <tr> ";
-
-		$row_first = $result->fetch_assoc();
-		foreach($row_first as $cname1 => $cvalue1)
-	{
-				echo "<th>".$cname1."</th>";
-
-	}
-	echo "</tr>";
-while($row = mysqli_fetch_assoc($result))
+	if ((isset($_GET['fname'])))
 {
-	
-	echo "<tr>";
-	foreach($row as $cname => $cvalue)
-	{
-			echo "<td>";
+			$name = $_GET["fname"];
+	$
+
+	$db = new mysqli('localhost', 'cs143', '', 'CS143'); 
+	if($db->connect_errno > 0)
+	{ 
+	die('Unable to connect to database [' . $db->connect_error . ']');
+	}
+
+
+	$result="si";
+
+		$x = ($result = $db->query($query));
+		if (!$x)
+		{ $errmsg = $db->error; 
+		//print "shit";
+		$flag=1;
+		print "Query failed: $errmsg <br />"; 
+		exit(1); 
+		}
+		else
+		{
+		}
+
 		
-		print "$cvalue\n </br>";
-    }				
-	echo "</td>";
+		
+		$i=0;
+			echo "<table border='1'> <tr> ";
 
-	echo "<tr>";
+			$row_first = $result->fetch_assoc();
+			foreach($row_first as $cname1 => $cvalue1)
+		{
+					echo "<th>".$cname1."</th>";
+
+		}
+		echo "</tr>";
+	while($row = mysqli_fetch_assoc($result))
+	{
+		
+		echo "<tr>";
+		foreach($row as $cname => $cvalue)
+		{
+				echo "<td>";
+			
+			print "$cvalue\n </br>";
+		}				
+		echo "</td>";
+
+		echo "<tr>";
 
 
-   // print "\r\n";
+	   // print "\r\n";
+	}
+
+
 }
-
-
-
 
 ?>
