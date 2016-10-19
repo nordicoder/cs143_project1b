@@ -12,9 +12,8 @@
 
 	if ((isset($_GET['fname'])))
 {
-			$name = $_GET["fname"];
-	$
-
+			$query = $_GET["fname"];
+//echo $name;
 	$db = new mysqli('localhost', 'cs143', '', 'CS143'); 
 	if($db->connect_errno > 0)
 	{ 
@@ -37,7 +36,7 @@
 		}
 
 		
-		
+		print "here";
 		$i=0;
 			echo "<table border='1'> <tr> ";
 

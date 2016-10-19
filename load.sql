@@ -16,3 +16,6 @@ LOAD DATA LOCAL INFILE '~/data/moviedirector.del' INTO TABLE MovieDirector FIELD
 
 LOAD DATA LOCAL INFILE '~/data/moviegenre.del' INTO TABLE MovieGenre FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
 
+INSERT INTO MaxMovieID value (4750);
+
+INSERT INTO MaxPersonID value (69000);
